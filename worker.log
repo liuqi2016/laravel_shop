@@ -1,0 +1,653 @@
+[2018-06-27 06:30:54][22] Processing: App\Jobs\UserTestJob
+[2018-06-27 06:30:54][22] Processed:  App\Jobs\UserTestJob
+[2018-06-27 08:19:29][23] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:19:29][23] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:19:29][23] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 08:26:53][24] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:26:53][24] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:26:53][24] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 08:29:57][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:29:57][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:29:58][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:29:58][25] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:31:06][26] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:31:06][26] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:31:06][26] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 08:38:27][27] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:38:27][27] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:38:27][27] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 08:39:51][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:39:52][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:39:53][25] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:39:53][25] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:47:40][28] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:47:42][28] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:47:42][28] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:47:42][28] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:48:14][29] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:48:14][29] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:48:14][29] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 08:49:04][30] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:49:04][30] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:49:04][30] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:49:04][30] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:59:18][31] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:59:18][31] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:59:18][31] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 08:59:18][31] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:03:39][32] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:03:39][32] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:03:39][32] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 09:04:32][33] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:04:34][33] Processed:  Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:05:06][34] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:05:06][34] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:05:06][34] Processing: Laravel\Scout\Jobs\MakeSearchable
+PHP Fatal error:  method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition  in /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php on line 148
+PHP Stack trace:
+PHP   1. {main}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:0
+PHP   2. Illuminate\Foundation\Console\Kernel->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/artisan:37
+PHP   3. Illuminate\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php:122
+PHP   4. Symfony\Component\Console\Application->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Application.php:89
+PHP   5. Symfony\Component\Console\Application->doRun() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:145
+PHP   6. Symfony\Component\Console\Application->doRunCommand() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:262
+PHP   7. Illuminate\Console\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Application.php:886
+PHP   8. Symfony\Component\Console\Command\Command->run() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:171
+PHP   9. Illuminate\Console\Command->execute() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/symfony/console/Command/Command.php:251
+PHP  10. Illuminate\Container\Container->call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Console/Command.php:184
+PHP  11. Illuminate\Container\BoundMethod::call() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/Container.php:564
+PHP  12. Illuminate\Container\BoundMethod::callBoundMethod() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:31
+PHP  13. Illuminate\Container\BoundMethod::Illuminate\Container\{closure}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:87
+PHP  14. call_user_func_array:{/mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29}() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  15. Illuminate\Queue\Console\WorkCommand->handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php:29
+PHP  16. Illuminate\Queue\Console\WorkCommand->runWorker() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:85
+PHP  17. Illuminate\Queue\Worker->daemon() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+PHP  18. Illuminate\Queue\Worker->runJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+PHP  19. Illuminate\Queue\Worker->process() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:272
+PHP  20. Illuminate\Queue\Worker->handleJobException() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:326
+PHP  21. Illuminate\Queue\Worker->markJobAsFailedIfWillExceedMaxAttempts() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:353
+PHP  22. Illuminate\Queue\Worker->failJob() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:421
+PHP  23. Illuminate\Queue\FailingJob::handle() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:435
+PHP  24. Illuminate\Queue\Jobs\Job->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/FailingJob.php:33
+PHP  25. Illuminate\Queue\CallQueuedHandler->failed() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+PHP  26. method_exists() /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+   Symfony\Component\Debug\Exception\FatalErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   method_exists()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+
+  2   Illuminate\Queue\CallQueuedHandler::failed()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Jobs/Job.php:172
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : method_exists(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition "Laravel\Scout\Jobs\MakeSearchable" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide a __autoload() function to load the class definition 
+
+  at /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/CallQueuedHandler.php:148
+    144|     public function failed(array $data, $e)
+    145|     {
+    146|         $command = unserialize($data['command']);
+    147| 
+  > 148|         if (method_exists($command, 'failed')) {
+    149|             $command->failed($e);
+    150|         }
+    151|     }
+    152| }
+
+  Exception trace:
+
+  1   Illuminate\Queue\Worker::runJob()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Worker.php:118
+
+  2   Illuminate\Queue\Worker::daemon()
+      /mnt/d/phpstudy/PHPTutorial/WWW/laravel/vendor/laravel/framework/src/Illuminate/Queue/Console/WorkCommand.php:101
+
+  Please use the argument -v to see more details.
+[2018-06-27 09:09:44][35] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:09:44][35] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:09:44][35] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:09:44][35] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:09:48][36] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:09:49][36] Processed:  Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:18:55][37] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-27 09:18:55][37] Processed:  Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:36][38] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:36][39] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:36][40] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:36][41] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:37][38] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:38][39] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:38][40] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:38][41] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:39][38] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:39][39] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:39][40] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:39][41] Processing: Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:41][38] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:41][39] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:41][40] Failed:     Laravel\Scout\Jobs\MakeSearchable
+[2018-06-28 01:49:41][41] Failed:     Laravel\Scout\Jobs\MakeSearchable
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libcrypto.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libcrypto.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libcrypto.so.1.0.0: no version information available (required by php)
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by /usr/local/curl/lib/libcurl.so.4)
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by /usr/local/curl/lib/libcurl.so.4)
+php: /usr/local/openssl/lib/libssl.so.1.0.0: no version information available (required by /usr/local/curl/lib/libcurl.so.4)
+php: /usr/local/openssl/lib/libcrypto.so.1.0.0: no version information available (required by /usr/local/curl/lib/libcurl.so.4)
+[2018-06-28 06:25:11][42] Processing: App\Events\ExampleEvent
+[2018-06-28 06:25:11][42] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:25:35][43] Processing: App\Events\ExampleEvent
+[2018-06-28 06:25:35][43] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:27:24][44] Processing: App\Events\ExampleEvent
+[2018-06-28 06:27:24][44] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:28:26][45] Processing: App\Events\ExampleEvent
+[2018-06-28 06:28:26][45] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:29:08][46] Processing: App\Events\ExampleEvent
+[2018-06-28 06:29:08][46] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:34:20][47] Processing: App\Events\ExampleEvent
+[2018-06-28 06:34:20][47] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:34:48][48] Processing: App\Events\ExampleEvent
+[2018-06-28 06:34:48][48] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:37:34][49] Processing: App\Events\ExampleEvent
+[2018-06-28 06:37:34][49] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:37:44][50] Processing: App\Events\ExampleEvent
+[2018-06-28 06:37:44][50] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:45:01][51] Processing: App\Events\ExampleEvent
+[2018-06-28 06:45:02][51] Processed:  App\Events\ExampleEvent
+[2018-06-28 06:50:16][52] Processing: App\Events\NewsEvent
+[2018-06-28 06:50:16][52] Processed:  App\Events\NewsEvent
+[2018-06-28 06:50:49][53] Processing: App\Events\NewsEvent
+[2018-06-28 06:50:49][53] Processed:  App\Events\NewsEvent
+[2018-06-28 07:02:34][54] Processing: App\Events\NewsEvent
+[2018-06-28 07:02:34][54] Processed:  App\Events\NewsEvent
+[2018-06-28 07:04:42][55] Processing: App\Events\NewsEvent
+[2018-06-28 07:04:42][55] Processed:  App\Events\NewsEvent
+[2018-06-28 08:18:56][56] Processing: App\Events\NewsEvent
+[2018-06-28 08:18:56][57] Processing: App\Events\NewsEvent
+[2018-06-28 08:18:56][56] Processed:  App\Events\NewsEvent
+[2018-06-28 08:18:56][57] Processed:  App\Events\NewsEvent
+[2018-06-28 08:19:14][58] Processing: App\Events\NewsEvent
+[2018-06-28 08:19:14][58] Processed:  App\Events\NewsEvent
+[2018-06-28 08:21:06][59] Processing: App\Events\NewsEvent
+[2018-06-28 08:21:06][59] Processed:  App\Events\NewsEvent
+[2018-06-28 08:34:22][60] Processing: App\Events\NewsEvent
+[2018-06-28 08:34:22][60] Processed:  App\Events\NewsEvent
+[2018-06-28 08:38:18][61] Processing: App\Events\NewsEvent
+[2018-06-28 08:38:18][61] Processed:  App\Events\NewsEvent
+[2018-06-28 08:51:54][62] Processing: App\Events\NewsEvent
+[2018-06-28 08:51:55][62] Processed:  App\Events\NewsEvent
+[2018-06-28 08:56:27][63] Processing: App\Events\NewsEvent
+[2018-06-28 08:56:27][63] Processed:  App\Events\NewsEvent
+[2018-06-28 09:00:01][64] Processing: App\Events\NewsEvent
+[2018-06-28 09:00:01][64] Processed:  App\Events\NewsEvent
+[2018-06-28 09:03:42][65] Processing: App\Events\NewsEvent
+[2018-06-28 09:03:42][65] Processed:  App\Events\NewsEvent
+[2018-06-28 09:08:30][66] Processing: App\Events\NewsEvent
+[2018-06-28 09:08:30][66] Processed:  App\Events\NewsEvent
+[2018-06-28 09:10:55][67] Processing: App\Events\NewsEvent
+[2018-06-28 09:10:55][67] Processed:  App\Events\NewsEvent
+[2018-06-28 09:12:20][68] Processing: App\Events\NewsEvent
+[2018-06-28 09:12:20][68] Processed:  App\Events\NewsEvent
+[2018-06-28 09:20:56][69] Processing: App\Events\NewsEvent
+[2018-06-28 09:20:56][69] Processed:  App\Events\NewsEvent
